@@ -10,16 +10,8 @@
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="roms">
-      <UniqueIdentifier>{fdd0320c-ff7d-4417-9859-b81ab24956c7}</UniqueIdentifier>
+      <UniqueIdentifier>{192110ea-0a1f-4021-98bf-f115e544b12f}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="roms\Pokemon - Red Version %28USA, Europe%29.gb">
-      <Filter>roms</Filter>
-    </None>
-    <None Include="roms\alleyway %28jua%29.gb">
-      <Filter>roms</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp">
@@ -48,5 +40,13 @@
     <ClInclude Include="cartridge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="roms\Pokemon - Red Version (USA, Europe).gb">
+      <Filter>roms</Filter>
+    </None>
+    <None Include="roms\alleyway (jua).gb">
+      <Filter>roms</Filter>
+    </None>
   </ItemGroup>
 </Project>

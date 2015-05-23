@@ -75,10 +75,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="roms\alleyway %28jua%29.gb" />
-    <None Include="roms\Pokemon - Red Version %28USA, Europe%29.gb" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="cartridge.cpp" />
     <ClCompile Include="cpu.cpp" />
     <ClCompile Include="main.cpp" />
@@ -89,6 +85,10 @@
     <ClInclude Include="cpu.h" />
     <ClInclude Include="memory.h" />
     <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="roms\alleyway (jua).gb" />
+    <None Include="roms\Pokemon - Red Version (USA, Europe).gb" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
