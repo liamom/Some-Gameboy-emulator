@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1432347245 source:c:\users\damon\documents\codeshit\gb\main.cpp
+	<iostream>
+	<iostream>
+	<fstream>
+	<memory>
+	<vector>
+	"cartridge.h"
+
+1432337750 c:\users\damon\documents\codeshit\gb\include\cartridge.h
+	<iomanip>
+	<vector>
+	<string>
+
+1432337824 source:c:\users\damon\documents\codeshit\gb\src\cartridge.cpp
+	"cartridge.h"
+	<vector>
+	<iostream>
+	<fstream>
+
+1432347318 source:c:\users\damon\documents\codeshit\gb\src\memory.cpp
+	"memory.h"
+
+1432347299 c:\users\damon\documents\codeshit\gb\include\memory.h
+	<array>
+	<bitset>
+	<cartridge.h>
+
+1432338051 source:c:\users\damon\documents\codeshit\gb\src\cpu.cpp
+	"cpu.h"
+
+1432338051 c:\users\damon\documents\codeshit\gb\include\cpu.h
+
