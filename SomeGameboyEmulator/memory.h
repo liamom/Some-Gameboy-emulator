@@ -14,11 +14,11 @@ class memory
         virtual ~memory();
     protected:
     private:
-        static const int mem_size = 65536;
-        array<char,mem_size> mem_data;
-        bitset<8> flag_reg;
-        char A,B,C,D,E,F,L,H;
-        unsigned short PC, SP;
+        static const int mem_size_ = 65536;
+        array<char,mem_size_> mem_data_;
+        bitset<8> flag_reg_;
+        char A_,B_,C_,D_,E_,F_,L_,H_;
+        unsigned short PC_, SP_;
         // char* mem_data[];
 
 };
