@@ -11,7 +11,6 @@ int main()
 {
     cartridge test("roms/alleyway (jua).gb");
     test.dump_header_data();
-    test.dump_nintendo_grapic();//
 
 	//Keep the console open after run.
 	char a;
