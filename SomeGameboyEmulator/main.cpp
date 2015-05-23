@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    cartridge test("alleyway (jua).gb");
+    cartridge test("roms/alleyway (jua).gb");
     test.dump_header_data();
     test.dump_nintendo_grapic();//
 

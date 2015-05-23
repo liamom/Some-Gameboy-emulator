@@ -43,7 +43,6 @@ class cartridge
             ROM_MMM01_SRAM_BATT = 0XD,
             Hudson_HuC_3 = 0XFE
         };
-
         enum key_mem_locations{
             game_title = 0x0134,
             is_gbc     = 0x0143,

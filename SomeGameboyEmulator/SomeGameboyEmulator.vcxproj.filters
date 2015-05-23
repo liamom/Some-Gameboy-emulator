@@ -10,21 +10,18 @@
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="roms">
-      <UniqueIdentifier>{44db299e-b665-4228-b0b3-7fb1e57fddb2}</UniqueIdentifier>
+      <UniqueIdentifier>{fdd0320c-ff7d-4417-9859-b81ab24956c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Pokemon - Red Version (USA, Europe).gb">
+    <None Include="roms\Pokemon - Red Version %28USA, Europe%29.gb">
       <Filter>roms</Filter>
     </None>
-    <None Include="alleyway (jua).gb">
+    <None Include="roms\alleyway %28jua%29.gb">
       <Filter>roms</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cartridge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cpu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -34,11 +31,11 @@
     <ClCompile Include="memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cartridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cartridge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cpu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -46,6 +43,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cartridge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

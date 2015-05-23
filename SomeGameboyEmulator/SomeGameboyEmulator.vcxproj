@@ -75,8 +75,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="alleyway (jua).gb" />
-    <None Include="Pokemon - Red Version (USA, Europe).gb" />
+    <None Include="roms\alleyway %28jua%29.gb" />
+    <None Include="roms\Pokemon - Red Version %28USA, Europe%29.gb" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cartridge.cpp" />
