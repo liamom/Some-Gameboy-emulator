@@ -1,3 +1,4 @@
+//run on http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
 String.prototype.hashCode = function() {
     var hash = 0, i, chr, len;
     if (this.length == 0) return hash;
