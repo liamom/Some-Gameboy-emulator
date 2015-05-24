@@ -12,6 +12,9 @@
     <Filter Include="roms">
       <UniqueIdentifier>{192110ea-0a1f-4021-98bf-f115e544b12f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="helper scripts">
+      <UniqueIdentifier>{7db0260e-eb18-436b-b3f4-6883250947f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp">
@@ -47,6 +50,9 @@
     </None>
     <None Include="roms\alleyway (jua).gb">
       <Filter>roms</Filter>
+    </None>
+    <None Include="gba_opcodeThing.js">
+      <Filter>helper scripts</Filter>
     </None>
   </ItemGroup>
 </Project>

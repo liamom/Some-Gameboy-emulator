@@ -87,6 +87,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="gba_opcodeThing.js" />
     <None Include="roms\alleyway (jua).gb" />
     <None Include="roms\Pokemon - Red Version (USA, Europe).gb" />
   </ItemGroup>
