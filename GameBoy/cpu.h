@@ -1,14 +1,30 @@
 #ifndef CPU_H
 #define CPU_H
 
+#include <array>
+#include <bitset>
+
+#include "cartridge.h"
+#include "memory.h"
+#include "registers.h"
+
+using namespace std;
 
 class cpu
 {
     public:
-        cpu();
+		cpu(string filename);
+		cpu(cartridge &cart);
         virtual ~cpu();
     protected:
+		void exicute_instruction(char instruction);
+		void ld_reg_to_reg(register_name a, register_name b);
+		void ld_mem_to_reg(register_name location, register_name_16 register_with_address);
+		void ld_reg_to_mem(register_name_16 register_with_address, register_name value);
     private:
+		cartridge cart_;
+		memory mem_;
+		registers reg_;
 
 		enum jumps_calls {
 			JP_a16 = 0xC3,//JP a16 cycles: 3  16 registers: - - - -
@@ -51,27 +67,27 @@ class cpu
 			LD__DE__A = 0x12,//LD (DE),A cycles: 1  8 registers: - - - -
 			LD_E_d8 = 0x1E,//LD E,d8 cycles: 2  8 registers: - - - -
 			LD_A_D = 0x7A,//LD A,D cycles: 1  4 registers: - - - -
-			LD__HL___A = 0x22,//LD (HL+),A cycles: 1  8 registers: - - - -
+			LD__HL_PLUS___A = 0x22,//LD (HL+),A cycles: 1  8 registers: - - - -
 			LD__C__A = 0xE2,//LD (C),A cycles: 2  8 registers: - - - -
 			LD__a16__A = 0xEA,//LD (a16),A cycles: 3  16 registers: - - - -
 			LD_H_d8 = 0x26,//LD H,d8 cycles: 2  8 registers: - - - -
 			LD_A__C_ = 0xF2,//LD A,(C) cycles: 2  8 registers: - - - -
 			LD_B_d8 = 0x06,//LD B,d8 cycles: 2  8 registers: - - - -
 			LD_A_A = 0x7F,//LD A,A cycles: 1  4 registers: - - - -
-			LD_A__HL__ = 0x2A,//LD A,(HL+) cycles: 1  8 registers: - - - -
+			LD_A__HL_PLUS__ = 0x2A,//LD A,(HL+) cycles: 1  8 registers: - - - -
 			LD_A__HL_ = 0x7E,//LD A,(HL) cycles: 1  8 registers: - - - -
 			LD_A_L = 0x7D,//LD A,L cycles: 1  4 registers: - - - -
 			LD_A_H = 0x7C,//LD A,H cycles: 1  4 registers: - - - -
 			LD_L_d8 = 0x2E,//LD L,d8 cycles: 2  8 registers: - - - -
 			LD_A_E = 0x7B,//LD A,E cycles: 1  4 registers: - - - -
 			LD_D_d8 = 0x16,//LD D,d8 cycles: 2  8 registers: - - - -
-			LD__HL___A = 0x32,//LD (HL-),A cycles: 1  8 registers: - - - -
+			LD__HL_MINUS___A = 0x32,//LD (HL-),A cycles: 1  8 registers: - - - -
 			LD_A_C = 0x79,//LD A,C cycles: 1  4 registers: - - - -
 			LD_A_B = 0x78,//LD A,B cycles: 1  4 registers: - - - -
 			LD__HL__d8 = 0x36,//LD (HL),d8 cycles: 2  12 registers: - - - -
 			LD__HL__A = 0x77,//LD (HL),A cycles: 1  8 registers: - - - -
 			LD_C_d8 = 0x0E,//LD C,d8 cycles: 2  8 registers: - - - -
-			LD_A__HL__ = 0x3A,//LD A,(HL-) cycles: 1  8 registers: - - - -
+			LD_A__HL_MINUS__ = 0x3A,//LD A,(HL-) cycles: 1  8 registers: - - - -
 			LD__HL__L = 0x75,//LD (HL),L cycles: 1  8 registers: - - - -
 			LD__HL__H = 0x74,//LD (HL),H cycles: 1  8 registers: - - - -
 			LD__HL__E = 0x73,//LD (HL),E cycles: 1  8 registers: - - - -
@@ -524,6 +540,15 @@ class cpu
 			SWAP_D = 0x32,//SWAP D cycles: 2  8 registers: Z 0 0 0
 			SWAP_C = 0x31,//SWAP C cycles: 2  8 registers: Z 0 0 0
 			SWAP_B = 0x30//SWAP B cycles: 2  8 registers: Z 0 0 0
+		};
+
+		enum misc_control{
+			NOP = 0X00,
+			STOP = 0X10,
+			HALT = 0X76,
+			PREFIX_CB = 0XCB,
+			DI = 0XF3,
+			EI = 0XFB
 		};
 };
 

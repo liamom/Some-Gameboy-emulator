@@ -9,48 +9,16 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="roms">
-      <UniqueIdentifier>{192110ea-0a1f-4021-98bf-f115e544b12f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="helper scripts">
       <UniqueIdentifier>{7db0260e-eb18-436b-b3f4-6883250947f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cpu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="memory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cartridge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cpu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="memory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cartridge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="roms\Pokemon - Red Version (USA, Europe).gb">
-      <Filter>roms</Filter>
-    </None>
-    <None Include="roms\alleyway (jua).gb">
-      <Filter>roms</Filter>
-    </None>
     <None Include="gba_opcodeThing.js">
       <Filter>helper scripts</Filter>
     </None>

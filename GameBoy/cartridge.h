@@ -7,17 +7,14 @@
 
 using namespace std;
 
-class cartridge
+class cartridge : public vector<char>
 {
     public:
-        vector<char> cart_data_;
         cartridge(string filename);
         string get_name();
         void dump_header_data();
-        //string cart_title();
-        virtual ~cartridge();
+		virtual ~cartridge();
         void load_cart(string filename);
-        char inline operator[](int location){return cart_data_[location];}
         void dump_nintendo_grapic();
         enum cart_type {
             ROM_ONLY = 0X0,

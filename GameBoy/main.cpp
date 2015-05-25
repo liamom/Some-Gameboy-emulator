@@ -3,7 +3,8 @@
 #include <memory>
 #include <vector>
 
-#include "../GameBoy/cpu.h"
+#include "cartridge.h"
+#include "cpu.h"
 
 using namespace std;
 
