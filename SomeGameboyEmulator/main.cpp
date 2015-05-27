@@ -9,8 +9,8 @@ using namespace std;
 
 int main()
 {
-	string cartrage_path = "../roms/alleyway (jua).gb";
-	cartridge test(cartrage_path);
+	string cartridge_path = "../roms/alleyway (jua).gb";
+	cartridge test(cartridge_path);
     test.dump_header_data();
 
 	cpu processorTest(test);

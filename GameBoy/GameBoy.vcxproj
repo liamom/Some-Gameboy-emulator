@@ -76,7 +76,6 @@
   <ItemGroup>
     <ClCompile Include="cartridge.cpp" />
     <ClCompile Include="cpu.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="memory.cpp" />
   </ItemGroup>
   <ItemGroup>
