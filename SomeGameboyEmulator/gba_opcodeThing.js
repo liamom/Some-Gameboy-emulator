@@ -41,7 +41,7 @@ for(var i = 1 ; i < 17/*rows.length*/ ; i++)
                 comment: comment , 
                 fullName:fullName,
                 cycles:cycles,
-                registers,registers,
+                registers:registers,
                 color:color
             });
         }

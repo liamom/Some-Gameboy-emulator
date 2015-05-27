@@ -17,7 +17,7 @@ class cpu
 		cpu(cartridge &cart);
         virtual ~cpu();
     protected:
-		void exicute_instruction(char instruction);
+		void execute_instruction(char instruction);
 		void ld_reg_to_reg(register_name a, register_name b);
 		void ld_mem_to_reg(register_name location, register_name_16 register_with_address);
 		void ld_reg_to_mem(register_name_16 register_with_address, register_name value);

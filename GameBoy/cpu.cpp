@@ -14,7 +14,7 @@ cpu::~cpu()
     //dtor
 }
 
-void cpu::exicute_instruction(char instruction){
+void cpu::execute_instruction(char instruction){
 	//char instruction = instruction >> 24;
 
 	switch (instruction){
