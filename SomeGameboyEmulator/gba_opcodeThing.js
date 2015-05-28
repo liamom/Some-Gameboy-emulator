@@ -24,7 +24,7 @@ for(var i = 1 ; i < 17/*rows.length*/ ; i++)
         var second4 = columns[j].firstChild.textContent.replace(/ /g,'').replace('x','')
         var elmContense = elms[j].innerHTML.split("<br>")
         if(elmContense != "&nbsp;"){
-            var name = elmContense[0].replace(/ /g,'_').replace(/ | |\-/g,'_').replace(/,/g,'_').replace('+','_').replace(/\(|\)/g,'_')
+            var name = elmContense[0].replace(/ /g,'_').replace(/ | /g,'_').replace(/,/g,'_').replace(/\(|\)/g,'p').replace("-",'min').replace("+",'plus')
             var fullName = elmContense[0]
             var type = fullName.split(' ')[0];
             var cycles = elmContense[1].replace(/&nbsp;/g,' ')
@@ -41,18 +41,18 @@ for(var i = 1 ; i < 17/*rows.length*/ ; i++)
                 comment: comment , 
                 fullName:fullName,
                 cycles:cycles,
-                registers:registers,
+                registers,registers,
                 color:color
             });
         }
     }
 
-    output += code + "\n//" + comment + '\n'
+    //output += code + "\n//" + comment + '\n'
 }
 
-outObj.sort(function(a,b){
-    return a['type'].hashCode() - b['type'].hashCode()
-})
+//outObj.sort(function(a,b){
+//    return a['type'].hashCode() - b['type'].hashCode()
+//})
 
 var jumps_calls = outObj.filter(function(elm){
     return elm.color == '#ffcc99';
@@ -75,9 +75,9 @@ var rotations_shifts_8bit = outObj.filter(function(elm){
 })
 
 function printArray(array){
-    array.sort(function(a,b){
-        return a['type'].hashCode() - b['type'].hashCode()
-    })
+    //    array.sort(function(a,b){
+    //        return a['type'].hashCode() - b['type'].hashCode()
+    //    })
 
     var out = "";
     array.forEach(function(e){
@@ -88,4 +88,4 @@ function printArray(array){
     console.log(out);
 }
 
-printArray(rotations_shifts_8bit);
+printArray(outObj);

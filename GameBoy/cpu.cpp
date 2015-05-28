@@ -25,7 +25,7 @@ void cpu::execute_instruction(char instruction){
 	case LD_B_E:	ld_reg_to_reg(B, E); break;
 	case LD_B_H:	ld_reg_to_reg(B, H); break;
 	case LD_B_L:	ld_reg_to_reg(B, L); break;
-	case LD_B__HL_:	ld_mem_to_reg(B, HL); break;
+	case LD_B_pHLp:	ld_mem_to_reg(B, HL); break;
 	case LD_B_A:	ld_reg_to_reg(B, A); break;
 	case LD_C_B:	ld_reg_to_reg(C,B); break;
 	case LD_C_C:	ld_reg_to_reg(C, C); break;
@@ -33,7 +33,7 @@ void cpu::execute_instruction(char instruction){
 	case LD_C_E:	ld_reg_to_reg(C, E); break;
 	case LD_C_H:	ld_reg_to_reg(C, H); break;
 	case LD_C_L:	ld_reg_to_reg(C, L); break;
-	case LD_C__HL_:	ld_mem_to_reg(C, HL); break;
+	case LD_C_pHLp:	ld_mem_to_reg(C, HL); break;
 	case LD_C_A:	ld_reg_to_reg(C, A); break;
 	//row 5
 	case LD_D_B:	ld_reg_to_reg(D, B); break;
@@ -42,7 +42,7 @@ void cpu::execute_instruction(char instruction){
 	case LD_D_E:	ld_reg_to_reg(D, E); break;
 	case LD_D_H:	ld_reg_to_reg(D, H); break;
 	case LD_D_L:	ld_reg_to_reg(D, L); break;
-	case LD_D__HL_:	ld_mem_to_reg(D, HL); break;
+	case LD_D_pHLp:	ld_mem_to_reg(D, HL); break;
 	case LD_D_A:	ld_reg_to_reg(D, L); break;
 	case LD_E_B:	ld_reg_to_reg(E, B); break;
 	case LD_E_C:	ld_reg_to_reg(E, C); break;
@@ -50,7 +50,7 @@ void cpu::execute_instruction(char instruction){
 	case LD_E_E:	ld_reg_to_reg(E, E); break;
 	case LD_E_H:	ld_reg_to_reg(E, H); break;
 	case LD_E_L:	ld_reg_to_reg(E, L); break;
-	case LD_E__HL_:	ld_mem_to_reg(E, HL); break;
+	case LD_E_pHLp:	ld_mem_to_reg(E, HL); break;
 	case LD_E_A:	ld_reg_to_reg(E, L); break;
 	//row 6
 	case LD_H_B:	ld_reg_to_reg(H, B); break;
@@ -59,7 +59,7 @@ void cpu::execute_instruction(char instruction){
 	case LD_H_E:	ld_reg_to_reg(H, E); break;
 	case LD_H_H:	ld_reg_to_reg(H, H); break;
 	case LD_H_L:	ld_reg_to_reg(H, L); break;
-	case LD_H__HL_:	ld_mem_to_reg(H, HL); break;
+	case LD_H_pHLp:	ld_mem_to_reg(H, HL); break;
 	case LD_H_A:	ld_reg_to_reg(H, L); break;
 	case LD_L_B:	ld_reg_to_reg(L, B); break;
 	case LD_L_C:	ld_reg_to_reg(L, C); break;
@@ -67,24 +67,24 @@ void cpu::execute_instruction(char instruction){
 	case LD_L_E:	ld_reg_to_reg(L, E); break;
 	case LD_L_H:	ld_reg_to_reg(L, H); break;
 	case LD_L_L:	ld_reg_to_reg(L, L); break;
-	case LD_L__HL_:	ld_mem_to_reg(L, HL); break;
+	case LD_L_pHLp:	ld_mem_to_reg(L, HL); break;
 	case LD_L_A:	ld_reg_to_reg(L, L); break;
 	//row 7
-	case LD__HL__B:	ld_reg_to_mem(HL, B); break;
-	case LD__HL__C:	ld_reg_to_mem(HL, C); break;
-	case LD__HL__D:	ld_reg_to_mem(HL, D); break;
-	case LD__HL__E:	ld_reg_to_mem(HL, E); break;
-	case LD__HL__H:	ld_reg_to_mem(HL, H); break;
-	case LD__HL__L:	ld_reg_to_mem(HL, L); break;
+	case LD_pHLp_B:	ld_reg_to_mem(HL, B); break;
+	case LD_pHLp_C:	ld_reg_to_mem(HL, C); break;
+	case LD_pHLp_D:	ld_reg_to_mem(HL, D); break;
+	case LD_pHLp_E:	ld_reg_to_mem(HL, E); break;
+	case LD_pHLp_H:	ld_reg_to_mem(HL, H); break;
+	case LD_pHLp_L:	ld_reg_to_mem(HL, L); break;
 	case HALT:		throw invalid_argument("HALT instruction not implemented: " + (int)instruction); break;
-	case LD__HL__A:	ld_reg_to_mem(HL, A); break;
+	case LD_pHLp_A:	ld_reg_to_mem(HL, A); break;
 	case LD_A_B:	ld_reg_to_reg(A, B); break;
 	case LD_A_C:	ld_reg_to_reg(A, C); break;
 	case LD_A_D:	ld_reg_to_reg(A, D); break;
 	case LD_A_E:	ld_reg_to_reg(A, E); break;
 	case LD_A_H:	ld_reg_to_reg(A, H); break;
 	case LD_A_L:	ld_reg_to_reg(A, L); break;
-	case LD_A__HL_:	ld_mem_to_reg(A, HL); break;
+	case LD_A_pHLp:	ld_mem_to_reg(A, HL); break;
 	case LD_A_A:	ld_reg_to_reg(A, A); break;
 
 	default:		throw invalid_argument("instruction not implemented: " + (int)instruction); break;
