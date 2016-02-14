@@ -12,7 +12,7 @@ namespace gameboy_test
 	TEST_CLASS(registers_test)
 	{
 	public:
-		registers reg_;
+		Registers reg_;
 
 		TEST_CLASS_INITIALIZE(setup){
 		}
@@ -25,20 +25,20 @@ namespace gameboy_test
 		}
 
 		TEST_METHOD(registers_test_set_reg){
-			reg_.set(A, 0xfd);
-			Assert::AreEqual(reg_.get(A), (unsigned char)0xfd);
+			reg_.set(Registers::A, 0xfd);
+			Assert::AreEqual(reg_.get(Registers::A), (unsigned char)0xfd);
 		}
 
 		TEST_METHOD(registers_test_set_double_reg){
-			reg_.set(HL, 0xfff0);
-			auto var = reg_.get(HL);
-			Assert::IsTrue(reg_.get(HL) == (unsigned short)0xfff0);
+			reg_.set(Registers::HL, 0xfff0);
+			auto var = reg_.get(Registers::HL);
+			Assert::IsTrue(reg_.get(Registers::HL) == (unsigned short)0xfff0);
 		}
 
 		TEST_METHOD(registers_test_get_double_reg){
-			reg_.set(D, 0xff);
-			reg_.set(E, 0xaf);
-			Assert::IsTrue(reg_.get(DE) == (unsigned short)0xffaf);
+			reg_.set(Registers::D, 0xff);
+			reg_.set(Registers::E, 0xaf);
+			Assert::IsTrue(reg_.get(Registers::DE) == (unsigned short)0xffaf);
 		}
 
 	};

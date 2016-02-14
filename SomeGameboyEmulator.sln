@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SomeGameboyEmulator", "SomeGameboyEmulator\SomeGameboyEmulator.vcxproj", "{972D0DE9-DB40-429E-8D2B-358DD8E92CD4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\UnitTest1.vcxproj", "{51EBDEA7-5921-4CFB-B231-0BC436A625D9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameBoy", "GameBoy\GameBoy.vcxproj", "{078AD616-98F2-4E62-BED4-9730AA97481F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "gtest\gtest.vcxproj", "{7D3B275E-A303-4B02-8786-F0D7A7AE1866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{078AD616-98F2-4E62-BED4-9730AA97481F}.Release|Win32.Build.0 = Release|Win32
 		{078AD616-98F2-4E62-BED4-9730AA97481F}.Release|x64.ActiveCfg = Release|x64
 		{078AD616-98F2-4E62-BED4-9730AA97481F}.Release|x64.Build.0 = Release|x64
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Debug|Win32.Build.0 = Debug|Win32
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Debug|x64.ActiveCfg = Debug|x64
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Debug|x64.Build.0 = Debug|x64
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Release|Win32.ActiveCfg = Release|Win32
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Release|Win32.Build.0 = Release|Win32
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Release|x64.ActiveCfg = Release|x64
+		{7D3B275E-A303-4B02-8786-F0D7A7AE1866}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

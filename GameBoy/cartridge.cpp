@@ -1,59 +1,52 @@
-#include "cartridge.h"
+#include "Cartridge.h"
 
 #include <vector>
-#include <iostream>
+#include <ostream>
 #include <fstream>
 
-using namespace std;
-
-
-cartridge::cartridge(string filename){
-    load_cart(filename);
+Cartridge::Cartridge(std::string filename){
+  load_cart(filename);
 }
 
+bool Cartridge::load_cart(std::string filename){
+  std::ifstream file (filename, std::ios::in| std::ios::binary| std::ios::ate);
+  if (file.is_open())
+  {
+    std::streampos size   = file.tellg();
+    int64_t int_size = size.seekpos();
+    data_.resize(int_size);
+    file.seekg (0, std::ios::beg);
+    file.read (reinterpret_cast<char*>(data_.data()), size);
+    file.close();
 
-void cartridge::load_cart(string filename){
-     streampos size;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 
-    ifstream file (filename, ios::in|ios::binary|ios::ate);
-    if (file.is_open()){
-        size = file.tellg();
-        resize(size);
-        file.seekg (0, ios::beg);
-        file.read (data(), size);
-        file.close();
+void Cartridge::dump_header_data(std::ostream& stream){
+  stream << "Game Title: " << get_name()                       << std::endl
+         << "GBC: "        << (unsigned int)get(key_mem_locations::is_gbc)   << std::endl
+	       << "Cart Type: "  << (unsigned int)get(key_mem_locations::type)     << std::endl
+	       << "Rom Size: "   << (unsigned int)get(key_mem_locations::rom_size) << std::endl
+	       << "Ram Size: "   << (unsigned int)get(key_mem_locations::ram_size) << std::endl;
+}
+
+void Cartridge::dump_nintendo_grapic(std::ostream& stream){
+  for(int i = 0x0104; i <0x0134;i++){
+
+    if (i - 0x104 % 16 == 0){
+      stream << '\n';
     }
-    else cout << "Unable to open file";
+    stream << std::hex << std::setw(4) << (unsigned int)data_[i] << ' ';
+  }
 }
-
-void cartridge::dump_header_data(){
-    cout << "Game Title: " << get_name() << endl;
-    cout << "GBC: " << (int) (*this)[is_gbc] << endl;
-	cout << "Cart Type: " << (int)(*this)[type] << endl;
-	cout << "Rom Size: " << (int)(*this)[rom_size] << endl;
-	cout << "Ram Size: " << (int)(*this)[ram_size] << endl;
-}
-
-void cartridge::dump_nintendo_grapic(){
-    for(int i = 0x0104; i <0x0134;i++){
-
-        if (i-0x104 % 16 == 0){
-            cout << '\n';
-        }
-		cout << hex << setw(4) << (unsigned int)(*this)[i] << ' ';
-    }
-}
-string cartridge::get_name(){
-    string output;
-
-    for (int i =  game_title; i < game_title + 16 ; i++){
-		output += (*this)[i];
-    }
-
-    return output;
-}
-
-cartridge::~cartridge()
-{
-    //dtor
+std::string Cartridge::get_name(){
+  size_t index = static_cast<size_t>(key_mem_locations::game_title);
+  char *char_pointer = reinterpret_cast<char*>(&data_[index]);
+  std::string output(char_pointer, 16);
+  return output;
 }

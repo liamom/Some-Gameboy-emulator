@@ -1,15 +1,15 @@
 #include "memory.h"
 
 
-memory::memory(cartridge &cart_rom)
+Memory::Memory(Cartridge &cart_rom)
 {
-    switch(cart_rom[cartridge::key_mem_locations::type]){
-    case cartridge::cart_type::ROM_ONLY:
+    switch(cart_rom[Cartridge::key_mem_locations::type]){
+    case Cartridge::cart_type::ROM_ONLY:
         break;
     }
 
 }
-memory::~memory()
+Memory::~Memory()
 {
     //dtor
 }
