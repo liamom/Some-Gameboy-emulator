@@ -13,44 +13,67 @@ void Cpu::ExecuteInstruction(char instruction){
   auto& r = registers_;
 
 	switch (instruction){
-  case 0x00: break;
-  case 0x01: 
+  case 0x00: break;//NOP
+  case 0x01: //LD BC, nn
     r.C = m_.read_byte(PC_); 
     r.B = m_.read_byte(PC_ + 1); 
     PC_ += 2; 
     break;
-  case 0x02: m_.write_byte(r.size_16.BC, r.A); break;
-  case 0x03: r.size_16.BC += 1; break;
-  case 0x04: 
+  case 0x02: //LD (BC), A
+    m_.write_byte(r.size_16.BC, r.A); 
+    break; 
+  case 0x03: //INC BC
+    r.size_16.BC += 1; 
+    break;
+  case 0x04: //INC B
     ++r.B; 
     flags_.zero       = r.B == 0; 
     flags_.half_carry = (r.B & 0xF) == 0; 
     flags_.subtract   = false;
     break;
-  case 0x05: 
+  case 0x05: //DEC B
     --r.B;
     flags_.zero       = r.B == 0;
     flags_.half_carry = (r.B & 0xF) == 0;
     flags_.subtract = true;
     break;
-  case 0x06: 
+  case 0x06: //LD B, n
     r.B = m_.read_byte(PC_);
     ++PC_;
     break;
-  case 0x07: 
+  case 0x07: //RLCA
     flags_.carry = r.A > 0x7F;
-    r.A = (r.A << 1) | (r.A >> 7);
+    r.A = (r.A << 1) | (r.A >> 7);//rotate byte
     flags_.zero       = false;
     flags_.subtract   = false;
     flags_.half_carry = false;
     break;
-  case 0x08: 
-
+  case 0x08: //LD (nn), SP
+    SP_ = m_.read_word_16(PC_);
+    PC_ += 2;
     break;
-  case 0x09: break;
-  case 0x0A: break;
-  case 0x0B: break;
-  case 0x0C: break;
+  case 0x09: { //ADD HL, BC
+    //needs to be bigger than 16 bits to check for overflow
+    //this approach avoids branching
+    uint32_t sum = r.size_16.HL + r.size_16.BC;
+    flags_.half_carry = ((r.size_16.HL & 0xFFF) > (sum & 0xFFF));
+    flags_.carry      = sum > 0xFFFF;
+    r.size_16.HL      = sum;
+    flags_.subtract   = false;
+  }
+    break;
+  case 0x0A: //LD A, (BC)
+    r.A = m_.read_byte(r.size_16.BC);
+    break;
+  case 0x0B: //DEC BC 
+    --r.size_16.BC;
+    break;
+  case 0x0C: //INC C
+    ++r.C;
+    flags_.zero       = r.C == 0;
+    flags_.half_carry = (r.C & 0xF) == 0;
+    flags_.subtract   = false;
+    break;
   case 0x0D: break;
   case 0x0E: break;
   case 0x0F: break;

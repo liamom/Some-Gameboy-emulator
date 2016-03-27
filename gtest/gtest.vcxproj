@@ -155,7 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gtest.cpp" />
-    <ClCompile Include="register.cpp" />
+    <ClCompile Include="cpu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameBoy\GameBoy.vcxproj">

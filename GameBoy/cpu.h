@@ -20,14 +20,18 @@ private:
   Memory    m_;
   union {
     struct {
-      Word A;
+      //In oposite order because the least significant byte is first
       Word F;
-      Word B;
+      Word A;
+
       Word C;
-      Word D;
+      Word B;
+
       Word E;
-      Word H;
+      Word D;
+
       Word L;
+      Word H;
     };
     struct {
       Word_16 AF;
