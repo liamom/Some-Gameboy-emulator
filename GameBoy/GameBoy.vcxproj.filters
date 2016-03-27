@@ -27,7 +27,7 @@
     <ClCompile Include="memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="registers.cpp">
+    <ClCompile Include="word.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,14 +41,17 @@
     <ClInclude Include="memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="registers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="opcodes_enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="word.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="opcodes.json" />
   </ItemGroup>
 </Project>

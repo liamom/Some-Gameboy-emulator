@@ -6,30 +6,51 @@
 
 #include "cartridge.h"
 #include "memory.h"
-#include "registers.h"
-
-using namespace std;
 
 class Cpu
 {
 public:
-  Cpu(string filename);
+  Cpu(std::string filename);
   Cpu(Cartridge &cart);
-  virtual ~Cpu();
 protected:
-  void execute_instruction(char instruction);
-  void ld_reg_to_reg(Registers::register_name a, Registers::register_name b);
-  void ld_mem_to_reg(Registers::register_name location, Registers::register_name_16 register_with_address);
-  void ld_reg_to_mem(Registers::register_name_16 register_with_address, Registers::register_name value);
+  void ExecuteInstruction(char instruction);
+
 private:
   Cartridge cart_;
-  Memory    mem_;
-  Registers reg_;
-     
-  #include "opcodes_enum.h";
+  Memory    m_;
+  union {
+    struct {
+      Word A;
+      Word F;
+      Word B;
+      Word C;
+      Word D;
+      Word E;
+      Word H;
+      Word L;
+    };
+    struct {
+      Word_16 AF;
+      Word_16 BC;
+      Word_16 DE;
+      Word_16 HL;
+    } size_16;
+  } registers_;
 
-  //TODO
-  enum prefix_cb{};
+  struct {
+    bool zero;
+    bool subtract;
+    bool half_carry;
+    bool carry;
+  } flags_;
+  
+  struct {
+    Word_16 m;
+    Word_16 t;
+  } clock_, last_instr_clock_;
+  
+  Word_16 PC_ = 0x100;  //program counter
+  Word_16 SP_ = 0xFFFE; //stack pointer
 };
 
 #endif // CPU_H

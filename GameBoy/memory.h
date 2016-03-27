@@ -4,22 +4,23 @@
 #include <array>
 #include "cartridge.h"
 
-using namespace std;
-
 class Memory
 {
-  public:
-    Memory(Cartridge &cart_rom);
-    virtual ~Memory();
+public:
+  Word_16& read_word_16(Word_16 index) { 
+    Word* ptr = &mem_data_[index];
+    return *reinterpret_cast<Word_16*>(&ptr);
+  };
+  Word& read_byte(Word_16 index) { return mem_data_[index]; };
+  void write_byte(Word_16 address, Word data) {
+    mem_data_[address] = data;
+  }
 
-		char& operator[](long index){ return mem_data_[index]; };
-  protected:
-  private:
-    static const int mem_size_ = 65536;
-    array<char,mem_size_> mem_data_;
+  //Word& operator[](Word_16 index){ return read_byte(index); };
 
-    // char* mem_data[];
-
+private:
+  static const int      mem_size_ = 65536;
+  std::array<Word,mem_size_> mem_data_;
 };
 
 #endif // MEMORY_H

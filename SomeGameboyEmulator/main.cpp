@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
-#include <vector>
 
 #include <cpu.h>
+
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int main()
   else
   {
     test.dump_header_data(cout);
-    test.dump_header_data(cout);
+    test.dump_nintendo_grapic(cout);
     Cpu processorTest(test);
   }
 

@@ -136,15 +136,18 @@
     <ClCompile Include="cartridge.cpp" />
     <ClCompile Include="cpu.cpp" />
     <ClCompile Include="memory.cpp" />
-    <ClCompile Include="registers.cpp" />
+    <ClCompile Include="word.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cartridge.h" />
     <ClInclude Include="cpu.h" />
     <ClInclude Include="memory.h" />
     <ClInclude Include="opcodes_enum.h" />
-    <ClInclude Include="registers.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="word.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="opcodes.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,7 +7,7 @@
 
 #include <ostream>
 
-typedef uint8_t Word;
+#include "word.h"
 
 class Cartridge
 {
@@ -55,13 +55,13 @@ public:
   void dump_nintendo_grapic(std::ostream& stream);
 
   
-  inline Word& get(size_t index) { return data_[static_cast<size_t>(index)]; };
-  inline Word& get(key_mem_locations index) { return get(static_cast<size_t>(index)); };
-  inline Word& operator[](size_t index) { return get(index); };
-  inline Word& operator[](key_mem_locations index) { return get(index); };
+  Word& get(size_t index) { return data_[static_cast<size_t>(index)]; };
+  Word& get(key_mem_locations index) { return get(static_cast<size_t>(index)); };
+  Word& operator[](size_t index) { return get(index); };
+  Word& operator[](key_mem_locations index) { return get(index); };
 
 private:
-  std::vector<Word> data_;
+  std::vector<Word> data_{0};
 };
 
 #endif // CARTRIDGE_H
