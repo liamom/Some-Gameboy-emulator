@@ -13,11 +13,26 @@ public:
   Cpu(std::string filename);
   Cpu(Cartridge &cart);
 protected:
-  void ExecuteInstruction(char instruction);
+  void ExecuteInstruction(Word instruction);
+  void ExecuteTwoByteInstruction(Word instruction);
 
 private:
+  inline void Decrement(Word &reg);
+  inline void Increment(Word &reg);
+  inline void Add(Word &reg1, const Word &reg2);
+  inline void Double(Word &reg);
+  inline void AddWithCarry(Word &reg1, const Word &reg2);
+  inline void DoubleWithCarry(Word &reg);
+  inline void Subtract(Word &reg1, const Word &reg2);
+  inline void SubtractSelf(Word &reg1);
+  inline void SubtractWithCarry(Word &reg1, const Word &reg2);
+  inline void And(Word &reg1, const Word &reg2);
+  inline void Xor(Word &reg1, const Word &reg2);
+  inline void Or(Word &reg1, const Word &reg2);
+  inline void Compare(const Word &reg1, const Word &reg2);
+private:
   Cartridge cart_;
-  Memory    m_;
+  Memory    memory_;
   union {
     struct {
       //In oposite order because the least significant byte is first
@@ -38,7 +53,7 @@ private:
       Word_16 BC;
       Word_16 DE;
       Word_16 HL;
-    } size_16;
+    };
   } registers_;
 
   struct {
@@ -55,6 +70,7 @@ private:
   
   Word_16 PC_ = 0x100;  //program counter
   Word_16 SP_ = 0xFFFE; //stack pointer
+  int cpu_ticks = 0; //not sure yet
 };
 
 #endif // CPU_H
